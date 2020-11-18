@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import { Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap'
 import Chart from "chart.js";
 import React from 'react'
@@ -96,6 +97,25 @@ const dados = [
   }
 ]
 
+const detalhes = [
+  {
+    tipo: "Fundo Especial de Financiamento de Campanha (FEFC)",
+    detalhe: "O Fundo Especial de Financiamento de Campanha (FEFC) é um fundo público destinado ao financiamento das campanhas eleitorais dos candidatos, previsto nos artigos 16-C e 16-D da Lei nº 9.504/1997."
+  },
+  {
+    tipo: "Fundo Partidário",
+    detalhe: `O Fundo Especial de Assistência Financeira aos Partidos Políticos, denominado Fundo Partidário, é constituído por dotações orçamentárias da União, multas, penalidades, doações e outros recursos financeiros que lhes forem atribuídos por lei.
+    Os valores repassados aos partidos políticos, referentes aos duodécimos e multas (discriminados por partido e relativos ao mês de distribuição), são publicados mensalmente no Diário da Justiça Eletrônico. A consulta pode ser realizada por meio do acesso ao sítio eletrônico do TSE na Internet.`
+  },
+  {
+    tipo: `Recursos Privados`,
+    detalhe: `Doações realizadas pesssoas físicas` 
+  },
+  {
+    tipo: `Doações Estimáveis`,
+    detalhe: `Bens ou serviços doados ou cedidos para os partidos` 
+  },
+]
 class BarChart extends React.Component {
   constructor(props) {
     super(props);
@@ -147,7 +167,6 @@ class BarChart extends React.Component {
 }
 
 function App() {
-  console.log(dados)
   return (
     <div className="App">
       <header className="App-header">
@@ -155,8 +174,9 @@ function App() {
         </p>
       </header>
       <div className="container">
-
-        <h1>CANDIDATOS</h1>
+        <div className="container-box">
+          <p>CANDIDATOS</p>
+        </div>
         <CardDeck>
           {dados.map(cand =>
             <Card>
