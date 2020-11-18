@@ -1,12 +1,16 @@
-*{
-  font-family: 'Verdana', sans-serif;
+
+.element {
+  height: 1000px;
+  /* background-color: #ededed; */
+  border-top: 1px solid #000;
+  padding-top: 55px;
+  padding-left: 10px;
 }
-body{
-  background: rgb(2,0,36);
-  background: -moz-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,65,0.28335084033613445) 0%, rgba(0,212,255,0.34217436974789917) 100%);
-  background: -webkit-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,65,0.28335084033613445) 0%, rgba(0,212,255,0.34217436974789917) 100%);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,65,0.28335084033613445) 0%, rgba(0,212,255,0.34217436974789917) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
-  justify-content: center;
-  align-items: center;
+
+.element.no-padding {
+  padding-top: 0;
+}
+
+.active {
+  color: red !important;
 }

@@ -2,7 +2,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap'
 import Chart from "chart.js";
-import React from 'react'
+import React from 'react';
+import ReactDOM from "react-dom";
+
+import {
+  Link,
+  DirectLink,
+  Element,
+  Events,
+  animateScroll,
+  scrollSpy,
+  scroller
+} from "react-scroll";
+
+const durationFn = function (deltaTop) {
+  return deltaTop;
+};
+
 
 const dados = [
   {
@@ -109,19 +125,49 @@ const detalhes = [
   },
   {
     tipo: `Recursos Privados`,
-    detalhe: `Doações realizadas pesssoas físicas` 
+    detalhe: `Doações realizadas pesssoas físicas`
   },
   {
     tipo: `Doações Estimáveis`,
-    detalhe: `Bens ou serviços doados ou cedidos para os partidos` 
+    detalhe: `Bens ou serviços doados ou cedidos para os partidos`
   },
 ]
 class BarChart extends React.Component {
   constructor(props) {
     super(props);
     this.canvasRef = React.createRef();
+    this.scrollToTop = this.scrollToTop.bind(this);
   }
 
+
+  scrollToWithContainer() {
+    let goToContainer = new Promise((resolve, reject) => {
+      Events.scrollEvent.register("end", () => {
+        resolve();
+        Events.scrollEvent.remove("end");
+      });
+
+      scroller.scrollTo("scroll-container", {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart"
+      });
+    });
+
+    goToContainer.then(() =>
+      scroller.scrollTo("scroll-container-second-element", {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart",
+        containerId: "scroll-container",
+        offset: 50
+      })
+    );
+  }
+  componentWillUnmount() {
+    Events.scrollEvent.remove("begin");
+    Events.scrollEvent.remove("end");
+  }
   componentDidUpdate() {
     this.myChart.data.labels = this.props.data.map(d => d.label);
     this.myChart.data.datasets[0].data = this.props.data.map(d => d.value);
@@ -157,6 +203,25 @@ class BarChart extends React.Component {
         }]
       }
     });
+
+    Events.scrollEvent.register("begin", function () {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register("end", function () {
+      console.log("end", arguments);
+    });
+  }
+  scrollToTop() {
+    // scroll.scrollToTop();
+  }
+  scrollTo(offset) {
+    scroller.scrollTo("scroll-to-element", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+      offset: offset
+    });
   }
 
   render() {
@@ -170,35 +235,219 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-        </p>
+        <nav className="navbar navbar-default navbar-fixed-top">
+          <div className="container-fluid">
+            <div
+              className="collapse navbar-collapse"
+              id="bs-example-navbar-collapse-1"
+            >
+              <ul className="nav navbar-nav">
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test1"
+                    to="test1"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={50}
+                  >
+                    Test 1
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test2"
+                    to="test2"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-55}
+                  >
+                    Test 2
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test3"
+                    to="test3"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    Test 3
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test4"
+                    to="test4"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    Test 4
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test5"
+                    to="test5"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    delay={1000}
+                  >
+                    Test 5 ( delay )
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test6"
+                    to="anchor"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    Test 6 (anchor)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test7"
+                    to="test7"
+                    spy={true}
+                    smooth={true}
+                    duration={durationFn}
+                  >
+                    Test 7 (duration and container)
+                  </Link>
+                </li>
+                <li>
+                  {" "}
+                  <a onClick={() => animateScroll.scrollTo(100)}>
+                    Scroll To 100!
+                  </a>
+                </li>
+                <li>
+                  {" "}
+                  <a onClick={() => animateScroll.scrollToBottom()}>
+                    Scroll To Bottom
+                  </a>
+                </li>
+                <li>
+                  {" "}
+                  <a onClick={() => animateScroll.scrollMore(500)}>
+                    Scroll 500 More!
+                  </a>
+                </li>
+                <li>
+                  {" "}
+                  <a
+                    onClick={() =>
+                      animateScroll.scrollMore(1000, { delay: 1500 })
+                    }
+                  >
+                    Scroll 1000 More! ( delay ){" "}
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test8"
+                    to="same"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    Same target
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    activeClass="active"
+                    className="test9"
+                    to="same"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    Same target
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    className="test1"
+                    to="test1"
+                    onClick={() => this.scrollTo()}
+                  >
+                    Scroll to element
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="test1"
+                    to="test1"
+                    onClick={() => this.scrollTo(-50)}
+                  >
+                    Scroll to element (offset -50)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="test1"
+                    to="test1"
+                    onClick={() => this.scrollToWithContainer()}
+                  >
+                    Scroll to element within container
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </header>
       <div className="container">
-        <div className="container-box">
-          <p>CANDIDATOS</p>
+        <div>
+          <Element name="test1" className="element">
+
+            <div className="container-box">
+              <h1>CANDIDATOS</h1>
+            </div>
+            <CardDeck>
+              {dados.map(cand =>
+                <Card>
+                  <Card.Img variant="top" src={cand.Imagem} />
+                  <Card.Body>
+                    <Card.Title>{cand.Nome_Candidato}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{cand.Partido}  ({cand.Sigla_Partido})</Card.Subtitle>
+                    <Card.Text>
+
+                    </Card.Text>
+                  </Card.Body>
+                  <ListGroup className="list-group-flush">
+                    <ListGroupItem variant="success">Recursos</ListGroupItem>
+                    <ListGroupItem variant="success">{(cand["Recursos Estimáveis"] + cand["Recursos Privados"] + cand["Recursos de FEFC"] + cand["Recursos de Fundo Partidário"]).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
+                    <ListGroupItem variant="danger">Gastos</ListGroupItem>
+                    <ListGroupItem variant="danger">{(cand["Gastos Eleitorais Estimáveis"] + cand["Gastos Eleitorais Financeiros"]).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
+
+                  </ListGroup>
+                  <Card.Footer>
+                    <small className="text-muted">Atualizado em {cand.Data}</small>
+                  </Card.Footer>
+                </Card>
+              )}
+            </CardDeck>
+          </Element>
         </div>
-        <CardDeck>
-          {dados.map(cand =>
-            <Card>
-              <Card.Img variant="top" src={cand.Imagem} />
-              <Card.Body>
-                <Card.Title>{cand.Nome_Candidato}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{cand.Partido}  ({cand.Sigla_Partido})</Card.Subtitle>
-                <Card.Text>
-
-                </Card.Text>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroupItem>+ Recursos: R$ {cand["Recursos Estimáveis"] + cand["Recursos Privados"] + cand["Recursos de FEFC"] + cand["Recursos de Fundo Partidário"]}</ListGroupItem>
-                <ListGroupItem>- Gastos: R$ {cand["Gastos Eleitorais Estimáveis"] + cand["Gastos Eleitorais Financeiros"]}</ListGroupItem>
-
-              </ListGroup>
-              <Card.Footer>
-                <small className="text-muted">Atualizado em {cand.Data}</small>
-              </Card.Footer>
-            </Card>
-          )}
-        </CardDeck>
+        
+        <Element name="test2" className="element no-padding" style={{background: '#fbf6f0'}}>
         <h1>RECURSOS</h1>
         <div className="row">
           <div className="col">
@@ -256,6 +505,8 @@ function App() {
             </Card>
           </div>
         </div>
+        </Element>
+        <Element name="test3" className="element">
         <h1>GASTOS</h1>
         <div className="row">
           <div className="col">
@@ -285,9 +536,17 @@ function App() {
             </Card>
           </div>
         </div>
+        </Element>
       </div>
+      
+      <div>
 
+
+        {/* <a onClick={this.scrollToTop}>To the top!</a> */}
+      </div>
     </div>
+
+
   );
 }
 
