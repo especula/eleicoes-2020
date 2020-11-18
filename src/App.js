@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import { Card, CardDeck, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Card, CardDeck, ListGroup, ListGroupItem, Carousel } from 'react-bootstrap'
 import Chart from "chart.js";
 import React from 'react';
 import ReactDOM from "react-dom";
@@ -235,7 +235,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <nav className="navbar navbar-default navbar-fixed-top">
+        <nav className="navbar navbar-fixed-top">
           <div className="container-fluid">
             <div
               className="collapse navbar-collapse"
@@ -446,99 +446,154 @@ function App() {
             </CardDeck>
           </Element>
         </div>
-        
-        <Element name="test2" className="element no-padding" style={{background: '#fbf6f0'}}>
-        <h1>RECURSOS</h1>
-        <div className="row">
-          <div className="col">
-            <Card>
-              <Card.Title className="text-center mt-4">Recursos de FEFC</Card.Title>
-              <Card.Body>
-                <BarChart
-                  title={dados.map(cand => cand.Nome)}
-                  data={dados.map(cand => cand["Recursos de FEFC"])}
-                  color="#70CAD1"
-                  legenda={false}
-                />
-              </Card.Body>
-            </Card>
+
+        <Element name="test2" className="element no-padding" style={{ background: '#fbf6f0' }}>
+          <h1>RECURSOS</h1>
+          <div className="row mb-2">
+            <div className="col">
+              <Card>
+                <Card.Title className="text-center mt-4">Recursos de FEFC</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Recursos de FEFC"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
+            <div className="col">
+              <Card>
+                <Card.Title className="text-center mt-4">Recursos Privados</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Recursos Privados"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
           </div>
-          <div className="col">
-            <Card>
-              <Card.Title className="text-center mt-4">Recursos Privados</Card.Title>
-              <Card.Body>
-                <BarChart
-                  title={dados.map(cand => cand.Nome)}
-                  data={dados.map(cand => cand["Recursos Privados"])}
-                  color="#70CAD1"
-                  legenda={false}
-                />
-              </Card.Body>
-            </Card>
+          <div className="row">
+            <div className="col">
+              <Card>
+                <Card.Title className="text-center mt-4">Recursos Estimáveis</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Recursos Estimáveis"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
+            <div className="col">
+              <Card>
+                <Card.Title className="text-center mt-4">Recursos de Fundo Partidário</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Recursos de Fundo Partidário"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <Card>
-              <Card.Title className="text-center mt-4">Recursos Estimáveis</Card.Title>
-              <Card.Body>
-                <BarChart
-                  title={dados.map(cand => cand.Nome)}
-                  data={dados.map(cand => cand["Recursos Estimáveis"])}
-                  color="#70CAD1"
-                  legenda={false}
-                />
-              </Card.Body>
-            </Card>
-          </div>
-          <div className="col">
-            <Card>
-              <Card.Title className="text-center mt-4">Recursos de Fundo Partidário</Card.Title>
-              <Card.Body>
-                <BarChart
-                  title={dados.map(cand => cand.Nome)}
-                  data={dados.map(cand => cand["Recursos de Fundo Partidário"])}
-                  color="#70CAD1"
-                  legenda={false}
-                />
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
         </Element>
         <Element name="test3" className="element">
-        <h1>GASTOS</h1>
-        <div className="row">
-          <div className="col">
-            <Card>
-              <Card.Title className="text-center mt-4">Gastos Eleitorais Financeiros</Card.Title>
-              <Card.Body>
-                <BarChart
-                  title={dados.map(cand => cand.Nome)}
-                  data={dados.map(cand => cand["Gastos Eleitorais Financeiros"])}
-                  color="#70CAD1"
-                  legenda={false}
-                />
-              </Card.Body>
-            </Card>
+          <h1>GASTOS</h1>
+          <div className="row">
+            <div className="col">
+              <Card>
+                <Card.Title className="text-center mt-4">Gastos Eleitorais Financeiros</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Gastos Eleitorais Financeiros"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
+            <div className="col">
+              <Card>
+                <Card.Title className="text-center mt-4">Gastos Eleitorais Estimáveis</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Gastos Eleitorais Estimáveis"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
           </div>
-          <div className="col">
-            <Card>
-              <Card.Title className="text-center mt-4">Gastos Eleitorais Estimáveis</Card.Title>
-              <Card.Body>
-                <BarChart
-                  title={dados.map(cand => cand.Nome)}
-                  data={dados.map(cand => cand["Gastos Eleitorais Estimáveis"])}
-                  color="#70CAD1"
-                  legenda={false}
-                />
-              </Card.Body>
-            </Card>
-          </div>
-        </div>
+        </Element>
+        <Element name="test4" className="element last">
+          <h1 className="mb-4">GASTOS EM CAROUSEL</h1>
+          <Carousel style={{color: 'black'}}>
+            <Carousel.Item>
+
+              <div className="row">
+              <div className="col">
+               <Card>
+                <Card.Title className="text-center mt-4">Gastos Eleitorais Estimáveis</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Gastos Eleitorais Estimáveis"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+              </div>
+              <div className="col">
+              <Carousel.Caption>
+                <h3 style={{color: `black`}}>Gastos estimáveis</h3>
+                <p style={{color: `black`}}>São os gastos com despesas blablabla</p>
+              </Carousel.Caption>
+              </div>
+              </div>
+              
+            </Carousel.Item>
+            <Carousel.Item>
+
+              <div className="row">
+              <div className="col">
+              <Card>
+                <Card.Title className="text-center mt-4">Gastos Eleitorais Financeiros</Card.Title>
+                <Card.Body>
+                  <BarChart
+                    title={dados.map(cand => cand.Nome)}
+                    data={dados.map(cand => cand["Gastos Eleitorais Financeiros"])}
+                    color="#70CAD1"
+                    legenda={false}
+                  />
+                </Card.Body>
+              </Card>
+              </div>
+              <div className="col mb-4">
+              <Carousel.Caption>
+                <h3 style={{color: `black`}}>Gastos Eleitorais Financeiros</h3>
+                <p style={{color: `black`}}>São os gastos com dinheiros</p>
+              </Carousel.Caption>
+              </div>
+              </div>
+              
+            </Carousel.Item>
+          </Carousel>
         </Element>
       </div>
-      
+
       <div>
 
 
