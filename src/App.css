@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+body{
+  font-family: 'Lato', serif;
+}
 
 .element {
   height: 1000px;
@@ -5,6 +11,15 @@
   border-top: 1px solid #000;
   padding-top: 55px;
   padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+
+.text-element {
+  color: azure;
+
 }
 
 .element.no-padding {
@@ -16,7 +31,12 @@
 }
 
 .carousel-indicators li{
-  background-color: black; 
+  background-color:'none'; 
+  margin-bottom: 0;
+}
+
+.carousel-indicators{
+  margin-bottom: 0;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -36,11 +56,11 @@
   color: black;
 }
 
-.carousel-control-prev-icon:after {
+.carousel-control-prev-icon:before {
   content: '<';
   font-size: 55px;
   color: black;
 }
 .active {
-  color: red !important;
+  color: rgb(32, 34, 34) !important;
 }

@@ -4,6 +4,7 @@ import { Card, CardDeck, ListGroup, ListGroupItem, Carousel } from 'react-bootst
 import Chart from "chart.js";
 import React from 'react';
 import ReactDOM from "react-dom";
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Image } from 'react-bootstrap';
 
 import {
   Link,
@@ -233,194 +234,83 @@ class BarChart extends React.Component {
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <nav className="navbar navbar-fixed-top">
-          <div className="container-fluid">
-            <div
-              className="collapse navbar-collapse"
-              id="bs-example-navbar-collapse-1"
-            >
-              <ul className="nav navbar-nav">
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test1"
-                    to="test1"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={50}
-                  >
-                    Test 1
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test2"
-                    to="test2"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-55}
-                  >
-                    Test 2
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test3"
-                    to="test3"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                  >
-                    Test 3
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test4"
-                    to="test4"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                  >
-                    Test 4
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test5"
-                    to="test5"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    delay={1000}
-                  >
-                    Test 5 ( delay )
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test6"
-                    to="anchor"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                  >
-                    Test 6 (anchor)
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test7"
-                    to="test7"
-                    spy={true}
-                    smooth={true}
-                    duration={durationFn}
-                  >
-                    Test 7 (duration and container)
-                  </Link>
-                </li>
-                <li>
-                  {" "}
-                  <a onClick={() => animateScroll.scrollTo(100)}>
-                    Scroll To 100!
-                  </a>
-                </li>
-                <li>
-                  {" "}
-                  <a onClick={() => animateScroll.scrollToBottom()}>
-                    Scroll To Bottom
-                  </a>
-                </li>
-                <li>
-                  {" "}
-                  <a onClick={() => animateScroll.scrollMore(500)}>
-                    Scroll 500 More!
-                  </a>
-                </li>
-                <li>
-                  {" "}
-                  <a
-                    onClick={() =>
-                      animateScroll.scrollMore(1000, { delay: 1500 })
-                    }
-                  >
-                    Scroll 1000 More! ( delay ){" "}
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test8"
-                    to="same"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                  >
-                    Same target
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    activeClass="active"
-                    className="test9"
-                    to="same"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                  >
-                    Same target
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    className="test1"
-                    to="test1"
-                    onClick={() => this.scrollTo()}
-                  >
-                    Scroll to element
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="test1"
-                    to="test1"
-                    onClick={() => this.scrollTo(-50)}
-                  >
-                    Scroll to element (offset -50)
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="test1"
-                    to="test1"
-                    onClick={() => this.scrollToWithContainer()}
-                  >
-                    Scroll to element within container
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-      <div className="container">
-        <div>
-          <Element name="test1" className="element">
+    <div>
+      <div>
+        <Navbar bg="light" expand="lg" fixed='top' className="justify-content-end">
+          {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav >
+              <Nav.Link>
+                <Link activeClass="active" to="sobre" spy={true} smooth={true} duration={500} offset={50}>
+                  Sobre
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link activeClass="active" to="candidatos" spy={true} smooth={true} duration={500} offset={50}>
+                  Candidatos
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link activeClass="active" to="recursos" spy={true} smooth={true} duration={500} offset={50}>
+                  Recursos
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link activeClass="active" to="gastos" spy={true} smooth={true} duration={500} offset={50}>
+                  Gastos
+                </Link>
+              </Nav.Link>
+            </Nav>
 
-            <div className="container-box">
-              <h1>CANDIDATOS</h1>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+      <div>
+        <div>
+          <Element name="sobre" className="element" style={{ background: "#214252" }}>
+            <div className="container">
+              <div className="text-element">
+                <h1>SOBRE</h1>
+                <p>Vivamus commodo augue non enim consectetur, eget egestas nulla hendrerit. Maecenas pulvinar dapibus volutpat. Sed ac mi magna. Nam ac sapien at neque elementum consequat sit amet sit amet neque. Nam malesuada ex ut pharetra pretium. Praesent efficitur vitae ipsum sed congue. Cras dui diam, facilisis in blandit sed, fringilla ut est.</p>
+
+                <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo, eu egestas erat gravida sit amet. Donec hendrerit est magna, ut fringilla ex accumsan sed.</p>
+              </div>
             </div>
-            <CardDeck>
+          </Element>
+          <Element name="candidatos" className="element" style={{ background: "#fbf6f0" }}>
+            <div className="container text-center">
+              <h1>CANDIDATOS</h1>
+              <Carousel hover>
+                {dados.map(cand =>
+                  <Carousel.Item>
+                    <div>
+                      <Image src={cand.Imagem} thumbnail />
+                    </div>
+                    <div>
+                      <h2>{cand.Nome_Candidato}</h2>
+                      <h4>{cand.Partido}  ({cand.Sigla_Partido})</h4>
+                      <h3>Recursos</h3>
+                      <h4>{(cand["Recursos Estimáveis"] + cand["Recursos Privados"] + cand["Recursos de FEFC"] + cand["Recursos de Fundo Partidário"]).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h4>
+                      <h3>Gastos</h3>
+                      <h4>{(cand["Gastos Eleitorais Estimáveis"] + cand["Gastos Eleitorais Financeiros"]).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h4>
+
+                    </div>
+                    {/* <Carousel.Caption>
+                  <h3>First slide label</h3>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption> */}
+                  </Carousel.Item>
+                )}
+
+              </Carousel>
+
+
+
+
+            </div>
+
+            {/* <CardDeck>
               {dados.map(cand =>
                 <Card>
                   <Card.Img variant="top" src={cand.Imagem} />
@@ -443,13 +333,13 @@ function App() {
                   </Card.Footer>
                 </Card>
               )}
-            </CardDeck>
+            </CardDeck> */}
           </Element>
         </div>
 
-        <Element name="test2" className="element no-padding" style={{ background: '#fbf6f0' }}>
+        <Element name="recursos" className="element" style={{ background: '#ce6262' }}>
           <h1>RECURSOS</h1>
-          <div className="row mb-2">
+          {/* <div className="row mb-2">
             <div className="col">
               <Card>
                 <Card.Title className="text-center mt-4">Recursos de FEFC</Card.Title>
@@ -503,12 +393,12 @@ function App() {
                   />
                 </Card.Body>
               </Card>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </Element>
-        <Element name="test3" className="element">
+        <Element name="gastos" className="element" style={{ background: '#fbf6f0' }}>
           <h1>GASTOS</h1>
-          <div className="row">
+          {/* <div className="row">
             <div className="col">
               <Card>
                 <Card.Title className="text-center mt-4">Gastos Eleitorais Financeiros</Card.Title>
@@ -535,11 +425,11 @@ function App() {
                 </Card.Body>
               </Card>
             </div>
-          </div>
+          </div> */}
         </Element>
-        <Element name="test4" className="element last">
-          <h1 className="mb-4">GASTOS EM CAROUSEL</h1>
-          <Carousel style={{color: 'black'}}>
+        {/* <Element name="test4" className="element last">
+          <h1 className="mb-4">GASTOS EM CAROUSEL</h1> */}
+        {/* <Carousel style={{color: 'black'}}>
             <Carousel.Item>
 
               <div className="row">
@@ -590,11 +480,11 @@ function App() {
               </div>
               
             </Carousel.Item>
-          </Carousel>
-        </Element>
-      </div>
+          </Carousel> */}
+        {/* </Element>
+      </div> */}
 
-      <div>
+        {/* <div> */}
 
 
         {/* <a onClick={this.scrollToTop}>To the top!</a> */}
