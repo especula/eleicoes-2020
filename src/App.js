@@ -15,6 +15,8 @@ import {
   scrollSpy,
   scroller
 } from "react-scroll";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 const durationFn = function (deltaTop) {
   return deltaTop;
@@ -252,22 +254,23 @@ function App() {
                 </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link activeClass="active" to="recursos" spy={true} smooth={true} duration={500} offset={50}>
-                  Recursos
-                </Link>
-              </Nav.Link>
-              <Nav.Link>
                 <Link activeClass="active" to="gastos" spy={true} smooth={true} duration={500} offset={50}>
                   Gastos
                 </Link>
               </Nav.Link>
-
-
               <Nav.Link>
+                <Link activeClass="active" to="recursos" spy={true} smooth={true} duration={500} offset={50}>
+                  Recursos
+                </Link>
+              </Nav.Link>
+
+
+
+              {/* <Nav.Link>
                 <Link activeClass="active" to="contribua" spy={true} smooth={true} duration={500} offset={50}>
                   Contribua
                 </Link>
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -317,72 +320,15 @@ function App() {
         <Element name="gastos" className="element" style={{ background: '#ce6262' }}>
           <div className="container">
             <h1>GASTOS</h1>
+            <h4>Gastos Eleitorais Financeiros</h4>
             <p>
               Sed convallis ipsum in nulla sagittis malesuada. Nullam efficitur mi at lorem congue venenatis. Nam nulla purus, porttitor nec nisi ac, placerat scelerisque odio. Praesent vulputate felis velit, nec vestibulum lorem rutrum vitae. Vestibulum non tincidunt ex. Curabitur sit amet porta erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean non arcu accumsan, convallis velit non, posuere nulla. Proin ut aliquam sapien, in scelerisque lacus. Vestibulum a enim nec lorem dapibus iaculis id nec elit. Sed fermentum a lacus non molestie. Aenean dignissim elit ut mattis pellentesque. Maecenas nec ultrices diam.
           </p>
+            <h4>Gastos Eleitorais Estimáveis</h4>
             <p>
               Nunc ac velit non elit rutrum tincidunt. Suspendisse dapibus ex sit amet nulla sollicitudin ornare. Quisque luctus, neque consequat laoreet aliquam, magna massa sollicitudin leo, a faucibus ante felis ac lacus. Vestibulum in ornare neque. Pellentesque auctor, nunc non luctus pulvinar, dui elit posuere nisi, eu efficitur metus dolor eu massa. Cras et tempus dui, sit amet consectetur ligula. Cras lacinia sed justo non dapibus. Fusce sem risus, mollis efficitur pretium ac, varius vitae tellus. Duis mattis lacus id velit placerat viverra.</p>
-
-            <p>Cras sit amet feugiat arcu, nec cursus nisl. Nullam nec condimentum risus, eget tincidunt nunc. Nunc laoreet lacinia neque sed pulvinar. Curabitur blandit id ex id imperdiet. Aenean in sodales magna. Sed sed sollicitudin tortor. Aenean commodo, turpis quis molestie viverra, enim lacus rhoncus mi, ut ornare ipsum ipsum ac nisl. Morbi sed magna id ex sollicitudin blandit non ut enim. Proin sed tortor et nisi faucibus commodo in eu massa. Fusce in nisi nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            </p>
           </div>
 
-          {/* <div className="row mb-2">
-            <div className="col">
-              <Card>
-                <Card.Title className="text-center mt-4">Recursos de FEFC</Card.Title>
-                <Card.Body>
-                  <BarChart
-                    title={dados.map(cand => cand.Nome)}
-                    data={dados.map(cand => cand["Recursos de FEFC"])}
-                    color="#70CAD1"
-                    legenda={false}
-                  />
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col">
-              <Card>
-                <Card.Title className="text-center mt-4">Recursos Privados</Card.Title>
-                <Card.Body>
-                  <BarChart
-                    title={dados.map(cand => cand.Nome)}
-                    data={dados.map(cand => cand["Recursos Privados"])}
-                    color="#70CAD1"
-                    legenda={false}
-                  />
-                </Card.Body>
-              </Card>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <Card>
-                <Card.Title className="text-center mt-4">Recursos Estimáveis</Card.Title>
-                <Card.Body>
-                  <BarChart
-                    title={dados.map(cand => cand.Nome)}
-                    data={dados.map(cand => cand["Recursos Estimáveis"])}
-                    color="#70CAD1"
-                    legenda={false}
-                  />
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col">
-              <Card>
-                <Card.Title className="text-center mt-4">Recursos de Fundo Partidário</Card.Title>
-                <Card.Body>
-                  <BarChart
-                    title={dados.map(cand => cand.Nome)}
-                    data={dados.map(cand => cand["Recursos de Fundo Partidário"])}
-                    color="#70CAD1"
-                    legenda={false}
-                  />
-                </Card.Body>
-              </Card>
-            </div> */}
-          {/* </div> */}
         </Element>
         <Element className="element" style={{ background: '#fbf6f0' }}>
 
@@ -410,18 +356,18 @@ function App() {
           </div>
 
         </Element>
-        <Element className="element" name="recursos" style={{ background: "#214252" }}>
+        <Element className="element" name="recursos" style={{ background: "#3c9d9b" }}>
           <div className='container'>
             <div className="text-element">
               <h1>RECURSOS</h1>
               <h4>Recursos de FEFC</h4>
               <p>Vivamus commodo augue non enim consectetur, eget egestas nulla hendrerit. Maecenas pulvinar dapibus volutpat. Sed ac mi magna. Nam ac sapien at neque elementum consequat sit amet sit amet neque. Nam malesuada ex ut pharetra pretium. Praesent efficitur vitae ipsum sed congue. Cras dui diam, facilisis in blandit sed, fringilla ut est.</p>
               <h4>Recursos Privados</h4>
-              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo, eu egestas erat gravida sit amet. Donec hendrerit est magna, ut fringilla ex accumsan sed.</p>
+              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo</p>
               <h4>Recursos Estimáveis</h4>
-              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo, eu egestas erat gravida sit amet. Donec hendrerit est magna, ut fringilla ex accumsan sed.</p>
+              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo</p>
               <h4>Recursos de Fundo Partidário</h4>
-              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo, eu egestas erat gravida sit amet. Donec hendrerit est magna, ut fringilla ex accumsan sed.</p>
+              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo</p>
 
             </div>
           </div>
@@ -441,7 +387,7 @@ function App() {
 
               </div>
               <div className="col">
-              <h3>Recursos Privados</h3>
+                <h3>Recursos Privados</h3>
                 <BarChart
                   title={dados.map(cand => cand.Nome)}
                   data={dados.map(cand => cand["Recursos Privados"])}
@@ -463,7 +409,7 @@ function App() {
 
               </div>
               <div className="col">
-              <h3>Recursos de Fundo Partidário</h3>
+                <h3>Recursos de Fundo Partidário</h3>
                 <BarChart
                   title={dados.map(cand => cand.Nome)}
                   data={dados.map(cand => cand["Recursos de Fundo Partidário"])}
@@ -476,72 +422,18 @@ function App() {
 
           </div>
         </Element>
-        <Element name="contribua" className="element last" style={{ background: "#214252" }}>
-          <div className="container">
+        <Element className="element last" style={{ background: "#214252" }}>
+          <div className="container text-element">
             <h1>Contribua</h1>
+            <FontAwesomeIcon icon={["fab", "fa-github"]} />
+            
+
+            <p>
+              Quer contribuir? Nos chame para um <FontAwesomeIcon icon={faCoffee} />
+            </p>
           </div>
         </Element>
-        {/* <Element name="test4" className="element last">
-          <h1 className="mb-4">GASTOS EM CAROUSEL</h1> */}
-        {/* <Carousel style={{color: 'black'}}>
-            <Carousel.Item>
 
-              <div className="row">
-              <div className="col">
-               <Card>
-                <Card.Title className="text-center mt-4">Gastos Eleitorais Estimáveis</Card.Title>
-                <Card.Body>
-                  <BarChart
-                    title={dados.map(cand => cand.Nome)}
-                    data={dados.map(cand => cand["Gastos Eleitorais Estimáveis"])}
-                    color="#70CAD1"
-                    legenda={false}
-                  />
-                </Card.Body>
-              </Card>
-              </div>
-              <div className="col">
-              <Carousel.Caption>
-                <h3 style={{color: `black`}}>Gastos estimáveis</h3>
-                <p style={{color: `black`}}>São os gastos com despesas blablabla</p>
-              </Carousel.Caption>
-              </div>
-              </div>
-              
-            </Carousel.Item>
-            <Carousel.Item>
-
-              <div className="row">
-              <div className="col">
-              <Card>
-                <Card.Title className="text-center mt-4">Gastos Eleitorais Financeiros</Card.Title>
-                <Card.Body>
-                  <BarChart
-                    title={dados.map(cand => cand.Nome)}
-                    data={dados.map(cand => cand["Gastos Eleitorais Financeiros"])}
-                    color="#70CAD1"
-                    legenda={false}
-                  />
-                </Card.Body>
-              </Card>
-              </div>
-              <div className="col mb-4">
-              <Carousel.Caption>
-                <h3 style={{color: `black`}}>Gastos Eleitorais Financeiros</h3>
-                <p style={{color: `black`}}>São os gastos com dinheiros</p>
-              </Carousel.Caption>
-              </div>
-              </div>
-              
-            </Carousel.Item>
-          </Carousel> */}
-        {/* </Element>
-      </div> */}
-
-        {/* <div> */}
-
-
-        {/* <a onClick={this.scrollToTop}>To the top!</a> */}
       </div>
     </div>
 

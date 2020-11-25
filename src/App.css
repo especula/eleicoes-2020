@@ -27,7 +27,7 @@ body{
 }
 
 .element.last {
-  height: 500px;
+  height: 300px;
   
 }
 
@@ -65,3 +65,14 @@ body{
 .active {
   color: rgb(32, 34, 34) !important;
 }
+
+.scrollhost {
+  scrollbar-width: none;
+ -ms-overflow-style: none;
+}
+
+.scrollhost::-webkit-scrollbar {
+ display: none;
+}
+
+::-webkit-scrollbar {display:none;}
