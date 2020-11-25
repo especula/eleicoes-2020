@@ -236,7 +236,7 @@ function App() {
   return (
     <div>
       <div>
-        <Navbar bg="light" expand="lg" fixed='top' className="justify-content-end">
+        <Navbar expand="lg" fixed='top' className="justify-content-end">
           {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -261,8 +261,14 @@ function App() {
                   Gastos
                 </Link>
               </Nav.Link>
-            </Nav>
 
+
+              <Nav.Link>
+                <Link activeClass="active" to="contribua" spy={true} smooth={true} duration={500} offset={50}>
+                  Contribua
+                </Link>
+              </Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Navbar>
       </div>
@@ -273,7 +279,6 @@ function App() {
               <div className="text-element">
                 <h1>SOBRE</h1>
                 <p>Vivamus commodo augue non enim consectetur, eget egestas nulla hendrerit. Maecenas pulvinar dapibus volutpat. Sed ac mi magna. Nam ac sapien at neque elementum consequat sit amet sit amet neque. Nam malesuada ex ut pharetra pretium. Praesent efficitur vitae ipsum sed congue. Cras dui diam, facilisis in blandit sed, fringilla ut est.</p>
-
                 <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo, eu egestas erat gravida sit amet. Donec hendrerit est magna, ut fringilla ex accumsan sed.</p>
               </div>
             </div>
@@ -296,10 +301,6 @@ function App() {
                       <h4>{(cand["Gastos Eleitorais Estimáveis"] + cand["Gastos Eleitorais Financeiros"]).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h4>
 
                     </div>
-                    {/* <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption> */}
                   </Carousel.Item>
                 )}
 
@@ -310,30 +311,6 @@ function App() {
 
             </div>
 
-            {/* <CardDeck>
-              {dados.map(cand =>
-                <Card>
-                  <Card.Img variant="top" src={cand.Imagem} />
-                  <Card.Body>
-                    <Card.Title>{cand.Nome_Candidato}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{cand.Partido}  ({cand.Sigla_Partido})</Card.Subtitle>
-                    <Card.Text>
-
-                    </Card.Text>
-                  </Card.Body>
-                  <ListGroup className="list-group-flush">
-                    <ListGroupItem variant="success">Recursos</ListGroupItem>
-                    <ListGroupItem variant="success">{(cand["Recursos Estimáveis"] + cand["Recursos Privados"] + cand["Recursos de FEFC"] + cand["Recursos de Fundo Partidário"]).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
-                    <ListGroupItem variant="danger">Gastos</ListGroupItem>
-                    <ListGroupItem variant="danger">{(cand["Gastos Eleitorais Estimáveis"] + cand["Gastos Eleitorais Financeiros"]).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
-
-                  </ListGroup>
-                  <Card.Footer>
-                    <small className="text-muted">Atualizado em {cand.Data}</small>
-                  </Card.Footer>
-                </Card>
-              )}
-            </CardDeck> */}
           </Element>
         </div>
 
@@ -397,35 +374,36 @@ function App() {
           {/* </div> */}
         </Element>
         <Element name="gastos" className="element" style={{ background: '#fbf6f0' }}>
-          <h1>GASTOS</h1>
-          {/* <div className="row">
+          
+          <div className="container">
+          <h1 className='text-center'>GASTOS</h1>
+          <div className="row text-center">
             <div className="col">
-              <Card>
-                <Card.Title className="text-center mt-4">Gastos Eleitorais Financeiros</Card.Title>
-                <Card.Body>
-                  <BarChart
-                    title={dados.map(cand => cand.Nome)}
-                    data={dados.map(cand => cand["Gastos Eleitorais Financeiros"])}
-                    color="#70CAD1"
-                    legenda={false}
-                  />
-                </Card.Body>
-              </Card>
+            <h3>Gastos Eleitorais Financeiros</h3>
+            <BarChart
+              title={dados.map(cand => cand.Nome)}
+              data={dados.map(cand => cand["Gastos Eleitorais Financeiros"])}
+              color="#70CAD1"
+              legenda={false}
+            />
             </div>
             <div className="col">
-              <Card>
-                <Card.Title className="text-center mt-4">Gastos Eleitorais Estimáveis</Card.Title>
-                <Card.Body>
-                  <BarChart
+            <h3>Gastos Eleitorais Estimáveis</h3>
+            <BarChart
                     title={dados.map(cand => cand.Nome)}
                     data={dados.map(cand => cand["Gastos Eleitorais Estimáveis"])}
                     color="#70CAD1"
                     legenda={false}
                   />
-                </Card.Body>
-              </Card>
             </div>
-          </div> */}
+            </div>
+          </div>
+         
+        </Element>
+        <Element name="contribua" className="element last" style={{ background: "#214252" }}>
+          <div className="container">
+            <h1>Contribua</h1>
+          </div>
         </Element>
         {/* <Element name="test4" className="element last">
           <h1 className="mb-4">GASTOS EM CAROUSEL</h1> */}
