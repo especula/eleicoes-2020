@@ -35,9 +35,9 @@ const dados = [
     "Municipio": "CRISSIUMAL",
     "Recursos de FEFC": 11400,
     "Recursos de Fundo Partidário": 0,
-    "Recursos Privados": 23267.61,
+    "Recursos Privados": 23290.16,
     "Recursos Estimáveis": 8050,
-    "Gastos Eleitorais Financeiros": 34667.61,
+    "Gastos Eleitorais Financeiros": 34690.16,
     "Gastos Eleitorais Estimáveis": 8050,
     "Data": "13/11/2020",
     "Imagem": "https://divulgacandcontas.tse.jus.br/candidaturas/oficial/2020/RS/86177/426/candidatos/379345/foto.jpg"
@@ -53,9 +53,9 @@ const dados = [
     "Municipio": "CRISSIUMAL",
     "Recursos de FEFC": 13500,
     "Recursos de Fundo Partidário": 0,
-    "Recursos Privados": 0,
+    "Recursos Privados": 1104,
     "Recursos Estimáveis": 203.31,
-    "Gastos Eleitorais Financeiros": 1944.8,
+    "Gastos Eleitorais Financeiros": 14604,
     "Gastos Eleitorais Estimáveis": 203.31,
     "Data": "30/10/2020",
     "Imagem": "https://divulgacandcontas.tse.jus.br/candidaturas/oficial/2020/RS/86177/426/candidatos/546613/foto.jpg"
@@ -71,9 +71,9 @@ const dados = [
     "Municipio": "CRISSIUMAL",
     "Recursos de FEFC": 30000,
     "Recursos de Fundo Partidário": 0,
-    "Recursos Privados": 6790,
+    "Recursos Privados": 6874.61,
     "Recursos Estimáveis": 7305,
-    "Gastos Eleitorais Financeiros": 20038.2,
+    "Gastos Eleitorais Financeiros": 36874.61,
     "Gastos Eleitorais Estimáveis": 7305,
     "Data": "12/11/2020",
     "Imagem": "https://divulgacandcontas.tse.jus.br/candidaturas/oficial/2020/RS/86177/426/candidatos/453619/foto.jpg"
@@ -91,7 +91,7 @@ const dados = [
     "Recursos de Fundo Partidário": 0,
     "Recursos Privados": 41000,
     "Recursos Estimáveis": 4336,
-    "Gastos Eleitorais Financeiros": 42393.34,
+    "Gastos Eleitorais Financeiros": 55920.34,
     "Gastos Eleitorais Estimáveis": 4336,
     "Data": "04/11/2020",
     "Imagem": "https://divulgacandcontas.tse.jus.br/candidaturas/oficial/2020/RS/86177/426/candidatos/46417/foto_738226831.jpg"
@@ -109,7 +109,7 @@ const dados = [
     "Recursos de Fundo Partidário": 0,
     "Recursos Privados": 22712.47,
     "Recursos Estimáveis": 1050,
-    "Gastos Eleitorais Financeiros": 10800.54,
+    "Gastos Eleitorais Financeiros": 22648.95,
     "Gastos Eleitorais Estimáveis": 1050,
     "Data": "13/11/2020",
     "Imagem": "https://divulgacandcontas.tse.jus.br/candidaturas/oficial/2020/RS/86177/426/candidatos/161399/1600369968205.jpg"
@@ -281,8 +281,11 @@ function App() {
             <div className="container">
               <div className="text-element">
                 <h1>SOBRE</h1>
-                <p>Vivamus commodo augue non enim consectetur, eget egestas nulla hendrerit. Maecenas pulvinar dapibus volutpat. Sed ac mi magna. Nam ac sapien at neque elementum consequat sit amet sit amet neque. Nam malesuada ex ut pharetra pretium. Praesent efficitur vitae ipsum sed congue. Cras dui diam, facilisis in blandit sed, fringilla ut est.</p>
-                <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo, eu egestas erat gravida sit amet. Donec hendrerit est magna, ut fringilla ex accumsan sed.</p>
+                <h5>Esse projeto tem como objetivo facilitar o acesso à informação.
+                Todas as informações aqui contidas estão disponíveis para acesso a todos os cidadãos por meio da plataforma <a href="https://divulgacandcontas.tse.jus.br/">DivulgaCand</a>.</h5>
+                <h5> A fiscalização de gastos nas eleições e no cotidiano do setor público é de suma importância visto que o SEU DINHEIRO financia boa parte desses gastos.
+                Essa é a primeira parte de uma série de análises que serão feitas. Começando pelo município de Crissiumal, no estado do Rio Grande do Sul. Depois podendo abranger demais municípios do país.
+</h5>
               </div>
             </div>
           </Element>
@@ -319,14 +322,16 @@ function App() {
 
         <Element name="gastos" className="element" style={{ background: '#ce6262' }}>
           <div className="container">
+          <div className="text-element">
             <h1>GASTOS</h1>
             <h4>Gastos Eleitorais Financeiros</h4>
             <p>
-              Sed convallis ipsum in nulla sagittis malesuada. Nullam efficitur mi at lorem congue venenatis. Nam nulla purus, porttitor nec nisi ac, placerat scelerisque odio. Praesent vulputate felis velit, nec vestibulum lorem rutrum vitae. Vestibulum non tincidunt ex. Curabitur sit amet porta erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean non arcu accumsan, convallis velit non, posuere nulla. Proin ut aliquam sapien, in scelerisque lacus. Vestibulum a enim nec lorem dapibus iaculis id nec elit. Sed fermentum a lacus non molestie. Aenean dignissim elit ut mattis pellentesque. Maecenas nec ultrices diam.
+              Os gastos eleitorais são as despesas realizadas por candidato e partido, na campanha eleitoral com o objetivo de conseguir voto. (Lei 9.504/1997, art. 26).
           </p>
             <h4>Gastos Eleitorais Estimáveis</h4>
             <p>
-              Nunc ac velit non elit rutrum tincidunt. Suspendisse dapibus ex sit amet nulla sollicitudin ornare. Quisque luctus, neque consequat laoreet aliquam, magna massa sollicitudin leo, a faucibus ante felis ac lacus. Vestibulum in ornare neque. Pellentesque auctor, nunc non luctus pulvinar, dui elit posuere nisi, eu efficitur metus dolor eu massa. Cras et tempus dui, sit amet consectetur ligula. Cras lacinia sed justo non dapibus. Fusce sem risus, mollis efficitur pretium ac, varius vitae tellus. Duis mattis lacus id velit placerat viverra.</p>
+              São gastos eleitorais estimáveis os bens e serviços aplicados em campanha por candidatos e partidos políticos, que têm um valor, todavia, obtidos mediante cessão ou doação e que, sob nenhuma hipótese, serão pagos.</p>
+                </div>
           </div>
 
         </Element>
@@ -361,13 +366,18 @@ function App() {
             <div className="text-element">
               <h1>RECURSOS</h1>
               <h4>Recursos de FEFC</h4>
-              <p>Vivamus commodo augue non enim consectetur, eget egestas nulla hendrerit. Maecenas pulvinar dapibus volutpat. Sed ac mi magna. Nam ac sapien at neque elementum consequat sit amet sit amet neque. Nam malesuada ex ut pharetra pretium. Praesent efficitur vitae ipsum sed congue. Cras dui diam, facilisis in blandit sed, fringilla ut est.</p>
+              <p>O Fundo Especial de Financiamento de Campanha (FEFC) é um fundo público destinado ao financiamento das campanhas eleitorais dos candidatos, previsto nos artigos 16-C e 16-D da Lei nº 9.504/1997.
+              As diretrizes gerais para a gestão e distribuição dos recursos do FEFC são regulamentadas pela Resolução-TSE nº 23.605/2019.</p>
+              <p>Para a eleição geral de 2020 o valor do FEFC é de R$ 2.034.954.824, montante que foi disponibilizado pelo Tesouro Nacional ao TSE em 1º de junho de 2020, nos termos da Lei nº 9.504/1997, art. 16-C, § 2º.</p>
+              <p>Os valores das cotas individuais de cada partido foram apurados de acordo com os critérios fixados na Lei nº 9.504/1997, art. 16-D e aprovados pelo Plenário do TSE, no Processo Administrativo nº 0600628-33.2020.6.00.0000.</p>
+              <p>O cálculo de distribuição do Fundo Especial de Financiamento de Campanha (FEFC) das Eleições 2020 considera o número de representantes eleitos para a Câmara dos Deputados e para o Senado Federal na última eleição geral, bem como o número de senadores filiados ao partido que, na data do pleito, estavam nos primeiros quatro anos de mandato.</p>
+
               <h4>Recursos Privados</h4>
-              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo</p>
+              <p>São as doações em dinheiro realizadas por pessoas físicas bem como recursos do próprio candidato.</p>
               <h4>Recursos Estimáveis</h4>
-              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo</p>
+              <p>TO DO</p>
               <h4>Recursos de Fundo Partidário</h4>
-              <p>Proin pharetra tellus eros, at tincidunt lorem mattis quis. Vivamus elementum vulputate erat ut lobortis. Aliquam vulputate volutpat leo et cursus. Nam a tortor cursus, accumsan purus a, venenatis enim. Maecenas rhoncus massa sed luctus tincidunt. Etiam hendrerit placerat massa congue egestas. Aenean dapibus turpis justo</p>
+              <p>O Fundo Especial de Assistência Financeira aos Partidos Políticos, denominado Fundo Partidário, é constituído por dotações orçamentárias da União, multas, penalidades, doações e outros recursos financeiros que lhes forem atribuídos por lei.</p>
 
             </div>
           </div>
@@ -426,7 +436,7 @@ function App() {
           <div className="container text-element">
             <h1>Contribua</h1>
             <FontAwesomeIcon icon={["fab", "fa-github"]} />
-            
+
 
             <p>
               Quer contribuir? Nos chame para um <FontAwesomeIcon icon={faCoffee} />
